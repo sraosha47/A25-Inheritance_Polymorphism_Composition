@@ -11,14 +11,14 @@ public class EventPost {
 
     /**
      * Constructor for objects of class EventPost
-     * @param author
+     * @param name
      * @param number
      */
-    public EventPost(String author, int number) {
+    public EventPost(String name, int number) {
 
-        username= author;
+        author = name;
         pages = number;
-        timestamp = System.currentTimeMillis();
+        timeStamp = System.currentTimeMillis();
         likes = 0;
         comments = new ArrayList<>();
     }
@@ -42,7 +42,7 @@ public class EventPost {
     }
 
     public long getTimeStamp() {
-        return timestamp;
+        return timeStamp;
     }
     /**
      * Displays details of post
@@ -65,11 +65,11 @@ public class EventPost {
             System.out.println("   " + comments.size() + " comment(s). Press C to view");
         }
     }
-    
+
     private String timeString() {
 
         long current = System.currentTimeMillis();
-        long pastMillis = current - timestamp;
+        long pastMillis = current - timeStamp;
         long seconds = pastMillis/1000;
         long minutes = seconds/60;
         long hours = minutes/60;
