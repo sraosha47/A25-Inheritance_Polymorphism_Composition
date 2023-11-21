@@ -3,49 +3,23 @@ package org.models;
 import java.util.ArrayList;
 
 public class NewsFeed {
-
-
-    private ArrayList<MessagePost> messages;
-    private ArrayList<PhotoPost> photos;
-    private ArrayList<EventPost> events;
-
+    public ArrayList<Post> posts;
 
     public NewsFeed() {
-        messages = new ArrayList<>();
-        photos = new ArrayList<>();
-        events = new ArrayList<>();
+        posts = new ArrayList<>();
     }
 
-
-    public void addMessagePost(MessagePost message) {
-        messages.add(message);
+    public void addPost(Post newpost) {
+        posts.add(newpost);
     }
-
-    public void addPhotoPost(PhotoPost photo) {
-        photos.add(photo);
-    }
-
-    public void addEventPost(EventPost event) {
-        events.add(event);
-    }
-
 
     public void show() {
 
-        for(MessagePost message : messages) {
-            message.display();
+        for(Post post : posts) {
+            post.display();
             System.out.println();
         }
 
-        for(PhotoPost photo : photos) {
-            photo.display();
-            System.out.println();
-        }
-
-        for(EventPost event : events) {
-            event.display();
-            System.out.println();
-        }
     }
 
 }
