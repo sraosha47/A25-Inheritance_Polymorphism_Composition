@@ -10,47 +10,20 @@ import java.util.ArrayList;
  *
  */
 
-public class PhotoPost {
+public class PhotoPost extends Post {
 
-
-    private String username;
     private String filename;
     private String caption;
-    private long timestamp;
-    private int likes;
-    private ArrayList<String> comments;
-
-
     /**
      * Constructor for objects of class PhotoPost
      * @param author
-     * @param filename
-     * @param caption
+     * @param file
+     * @param text
      */
-    public PhotoPost(String author, String filename, String caption) {
-
-        username= author;
-        this.filename = filename;
-        this.caption = caption;
-        timestamp = System.currentTimeMillis();
-        likes = 0;
-        comments = new ArrayList<>();
-    }
-
-
-    public void like() {
-        likes++;
-    }
-
-
-    public void unlike() {
-        if (likes > 0){
-            likes--;
-        }
-    }
-
-    public void addComment(String text) {
-        comments.add(text);
+    public PhotoPost(String author, String file, String text) {
+        super(author);
+        filename = file;
+        caption = text;
     }
 
     public String getImageFile() {
@@ -62,51 +35,13 @@ public class PhotoPost {
         return caption;
     }
 
-
-    public long getTimeStamp() {
-        return timestamp;
-    }
-
     /**
      * Simulate display for the time being
      */
     public void display() {
-
-        System.out.println("Username " + username);
+        super.display();
         System.out.println("FileName " + "{" + filename + "}");
         System.out.println("Caption " + caption);
-        System.out.println("Posted " + timeString());
-
-        if (likes > 0) {
-            System.out.println(likes + " people like this.");
-        } else {
-            System.out.println();
-        }
-        if (comments.isEmpty()) {
-            System.out.println("No Comments yet...");
-
-        } else {
-            System.out.println("   " + comments.size() + " comment(s). Press C to view");
-        }
-    }
-
-
-
-    private String timeString() {
-
-        long current = System.currentTimeMillis();
-        long pastMillis = current - timestamp;
-        long seconds = pastMillis/1000;
-        long minutes = seconds/60;
-        long hours = minutes/60;
-        if (minutes > 0) {
-            return minutes + " minutes ago";
-        } else if(hours > 0){
-            return hours + " hours ago";
-        } else {
-            return seconds + " seconds ago";
-        }
-
     }
 
 }

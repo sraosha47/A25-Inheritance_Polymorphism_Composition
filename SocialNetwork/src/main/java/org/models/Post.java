@@ -3,10 +3,10 @@ package org.models;
 import java.util.ArrayList;
 
 public class Post {
-    private String username;
-    private long timestamp;
-    private int likes;
-    private ArrayList<String> comments;
+    public String username;
+    public long timestamp;
+    public int likes;
+    public ArrayList<String> comments;
 
     /**
      * Constructor for objects of class MessagePost
@@ -30,7 +30,7 @@ public class Post {
         }
     }
 
-    public void addComments(String text) {
+    public void addComment(String text) {
         comments.add(text);
     }
 
