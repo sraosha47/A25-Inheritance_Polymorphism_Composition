@@ -1,3 +1,5 @@
+package org.models;
+
 import java.util.ArrayList;
 
 /**
@@ -11,13 +13,11 @@ import java.util.ArrayList;
 
 
 public class MessagePost {
-
     private String username;
     private String message;
     private long timestamp;
     private int likes;
     private ArrayList<String> comments;
-
 
     /**
      * Constructor for objects of class MessagePost
